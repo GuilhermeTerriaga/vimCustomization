@@ -48,3 +48,15 @@ let NERDTreeDirArrows = 1
 
 nnoremap<c-p> : Files<cr>
 nnoremap<c-f> :Ag<space>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+
