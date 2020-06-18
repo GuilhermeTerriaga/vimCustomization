@@ -1,3 +1,5 @@
+"Guilherme Terriaga NVIM init
+"Plugins"
 call plug#begin()
 Plug 'tomasr/molokai'
 Plug 'terryma/vim-multiple-cursors'
@@ -14,7 +16,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 call plug#end()
-
+"Customizations"
 colorscheme molokai
 set guifont=Source\ Code\ Pro\ 12
 set hidden
@@ -100,9 +102,10 @@ inoremap <silent><expr> <Tab>
   let g:airline#extensions#hunks#coc_git = 1
 
   "NERDTree"
-  let NERDTreeQuitOnOpen=1
+  "let NERDTreeQuitOnOpen = 1"
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
+  let NERDTreeShowHidden=1
 
   function! StartUp()
     if !argc() && !exists("s:std_in")
@@ -114,6 +117,8 @@ inoremap <silent><expr> <Tab>
         ene
     end
 endfunction
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 
