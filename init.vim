@@ -25,6 +25,7 @@ set relativenumber
 set mouse=a
 set inccommand=split
 set encoding=UTF-8
+set clipboard=unnamedplus
 
 let mapleader="\<space>"
 nnoremap<leader>; A;<esc>
